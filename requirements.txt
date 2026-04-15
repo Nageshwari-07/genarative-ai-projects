@@ -1,0 +1,10 @@
+streamlit
+langchain==0.3.27
+langchain-community==0.3.31
+langchain-huggingface==0.3.1
+faiss-cpu==1.13.0
+pypdf
+sentence-transformers
+transformers
+torch
+accelerate

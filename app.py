@@ -16,7 +16,7 @@ from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
 # Streamlit Configuration
 # -----------------------------
 st.set_page_config(page_title="RAG Document QA", layout="wide")
-st.title("📄 Document Question Answering System (RAG)")
+st.title(" Document Question Answering System (RAG)")
 st.write("Upload a PDF and ask questions based on the document.")
 
 # -----------------------------
@@ -82,7 +82,7 @@ if uploaded_file is not None:
     model=model,
     tokenizer=tokenizer,
     device=device,
-    max_new_tokens=200,   # ✅ Only controls output length
+    max_new_tokens=200,   #  Only controls output length
     do_sample=True,
     temperature=0.7
 )
@@ -108,15 +108,15 @@ if uploaded_file is not None:
             response = qa_chain.invoke({"query": query})
             answer = response["result"]
 
-        st.subheader("📌 Final Answer")
+        st.subheader("Final Answer")
         st.write(answer)
 
-        st.subheader("📚 Retrieved Chunks with Similarity Score")
+        st.subheader("Retrieved Chunks with Similarity Score")
 
         docs_with_scores = vectorstore.similarity_search_with_score(query, k=3)
 
         for i, (doc, score) in enumerate(docs_with_scores):
-            st.markdown(f"### 🔹 Chunk {i+1}")
+            st.markdown(f"###  Chunk {i+1}")
             st.write(doc.page_content)
             st.write(f"Similarity Score: {score}")
             st.markdown("---")
